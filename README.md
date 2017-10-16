@@ -55,25 +55,6 @@
 	        super.onDestroy();
 	        weixinLogin.onDestroy();
 	    }
-		
-	    public void showToast(int resid) {
-	        Toast t = getToast();
-	        t.setText(resid);
-	        t.show();
-	    }
-	
-	    public void showToast(String s) {
-	        Toast t = getToast();
-	        t.setText(s);
-	        t.show();
-	    }
-	
-	    private Toast getToast() {
-	        if (toast == null) {
-	            toast = Toast.makeText(this, "", Toast.LENGTH_SHORT);
-	        }
-	        return toast;
-	    }
 	
 	    @OnClick(R.id.btnLogin)
 	    public void onViewClicked() {
@@ -118,4 +99,12 @@
 	            }
 	        });
 	    }
+
+        public void showToast(String s) {
+            if (toast == null) {
+                toast = Toast.makeText(this, "", Toast.LENGTH_SHORT);
+            }
+            toast.setText(s);
+            toast.show();
+        }
 	}

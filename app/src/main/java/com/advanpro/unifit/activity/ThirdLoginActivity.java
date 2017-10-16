@@ -49,25 +49,6 @@ public class ThirdLoginActivity extends AppCompatActivity {
         weixinLogin.onDestroy();
     }
 
-    public void showToast(int resid) {
-        Toast t = getToast();
-        t.setText(resid);
-        t.show();
-    }
-
-    public void showToast(String s) {
-        Toast t = getToast();
-        t.setText(s);
-        t.show();
-    }
-
-    private Toast getToast() {
-        if (toast == null) {
-            toast = Toast.makeText(this, "", Toast.LENGTH_SHORT);
-        }
-        return toast;
-    }
-
     @OnClick(R.id.btnLogin)
     public void onViewClicked() {
         weixinLogin.login(this, new LoginCallback() {
@@ -110,5 +91,13 @@ public class ThirdLoginActivity extends AppCompatActivity {
                 showToast(errorDetail);
             }
         });
+    }
+
+    public void showToast(String s) {
+        if (toast == null) {
+            toast = Toast.makeText(this, "", Toast.LENGTH_SHORT);
+        }
+        toast.setText(s);
+        toast.show();
     }
 }
