@@ -1,0 +1,5 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <string name="weixin_appid">wxb174e4a70dc1779a</string>
+    <string name="weixin_secret">6e85eb9e5aabc5bd46d695b7cda66d08</string>
+</resources>
