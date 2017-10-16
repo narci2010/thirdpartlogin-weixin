@@ -28,6 +28,6 @@ dependencies {
     compile 'com.android.support:appcompat-v7:25.3.1'
     compile 'com.jakewharton:butterknife:8.8.1'
     compile 'com.jakewharton:butterknife-compiler:8.8.1'
-    compile project(':weixin')
     compile 'com.github.fszeng2011:thirdpartlogin-core:1.0'
+    compile 'com.github.fszeng2011:thirdpartlogin-weixin:1.0'
 }

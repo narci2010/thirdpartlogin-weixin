@@ -47,7 +47,7 @@
 	        super.onCreate(savedInstanceState);
 	        setContentView(R.layout.activity_third_login);
 	        ButterKnife.bind(this);
-	        weixinLogin = new QQLogin(this);
+	        weixinLogin = new WeixinLogin(this);
 	    }
 	
 	    @Override
@@ -77,7 +77,7 @@
 	
 	    @OnClick(R.id.btnLogin)
 	    public void onViewClicked() {
-	        qqLogin.login(this, new LoginCallback() {
+	        weixinLogin.login(this, new LoginCallback() {
 	            @Override
 	            public void onSuccess(int loginType, final UserInfo userInfo, JSONObject origin) {
 	                tv.append("id: " + userInfo.id + "\n");
