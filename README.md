@@ -28,7 +28,7 @@
         android:exported="true"/>
 
 ### Step 5 ###
-在字符串资源xml文件中添加appid和secret
+在字符串资源xml文件中添加appid和secret。<br>获取方法：到[https://open.weixin.qq.com](https://open.weixin.qq.com)创建移动应用，需要认证通过的开发者才能开通登录权限。没有开通登录权限是无法调起授权页面的。
 
     <string name="weixin_appid">wxde56b4c4fcd755c7</string>
     <string name="weixin_secret">33702de56b4c4fcd755c76bbf7468943</string>
