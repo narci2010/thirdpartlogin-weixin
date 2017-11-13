@@ -12,8 +12,8 @@
 在module的build.gradle添加依赖
 
     dependencies {
-        compile 'com.github.fszeng2011:thirdpartlogin-core:1.0'
-        compile 'com.github.fszeng2011:thirdpartlogin-weixin:1.0'
+        compile 'com.github.fszeng2011:thirdpartlogin-core:1.1'
+        compile 'com.github.fszeng2011:thirdpartlogin-weixin:1.1'
     }
 
 ### Step 3 ###
