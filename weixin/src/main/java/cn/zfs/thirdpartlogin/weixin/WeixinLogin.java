@@ -2,7 +2,6 @@ package cn.zfs.thirdpartlogin.weixin;
 
 import android.app.Activity;
 import android.content.Context;
-import android.os.AsyncTask;
 
 import com.tencent.mm.opensdk.modelbase.BaseResp;
 import com.tencent.mm.opensdk.modelmsg.SendAuth;
@@ -96,11 +95,12 @@ public class WeixinLogin extends BaseLogin {
     };
         
     private void requestUserInfo(String code) {
-        new AsyncTask<String, Void, Object[]>() {
+        final String url = String.format(toekenUrlPattern, appid, secret, code);
+        new Thread() {
             @Override
-            protected Object[] doInBackground(String... params) {
+            public void run() {
                 try {
-                    String tokenResp = Utils.request(String.format(toekenUrlPattern, appid, secret, params[0]));
+                    String tokenResp = Utils.request(url);
                     JSONObject tokenJson = new JSONObject(tokenResp);
                     String infoResp = Utils.request(String.format(userInfoUrlPattern, tokenJson.getString("access_token"), tokenJson.getString("openid")));
                     JSONObject infoJson = new JSONObject(infoResp);
@@ -127,22 +127,13 @@ public class WeixinLogin extends BaseLogin {
                             }
                         }
                     }
-                    return new Object[]{info, infoJson};
+                    onSuccess(info, infoJson);
                 } catch (Exception e) {
                     e.printStackTrace();
-                }
-                return null;
-            }
-
-            @Override
-            protected void onPostExecute(Object[] objs) {
-                if (objs == null) {
                     onError(8888, Utils.getString(context, "tpl_login_fail"));
-                } else {
-                    onSuccess((UserInfo) objs[0], (JSONObject) objs[1]);
                 }
             }
-        }.execute(code);
+        }.start();
     }
 
     @Override
